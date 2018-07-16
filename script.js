@@ -1,4 +1,5 @@
 const terminal = document.querySelector("#terminal");
+const cursor = document.querySelector("#cursor")
 const div = document.querySelector("#empty");
 const resetButton = document.querySelector("#reset-button")
 const whiteButton = document.querySelector("#white-button")
@@ -39,6 +40,18 @@ function addCode() {
   }
 }
 
+function blinkCursor() {
+  if (true) {
+    cursor.innerHTML = " |";
+    bool = false;
+  }
+  else {
+    cursor.innerHTML = "";
+    bool = true;
+  }
+}
+
+
 function reset() {
   terminal.innerHTML = "";
   i = 0;
@@ -49,6 +62,8 @@ function changeColor(color) {
   terminal.style.color = color;
 }
 
+// Set interval used for cursor blink
+setInterval(function(){ blinkCursor(); }, 500);
 document.addEventListener("keydown", addCode, false);
 resetButton.addEventListener("click", reset, false);
 whiteButton.addEventListener("click", function() { changeColor('white'); } , false);
