@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terminal</title>
-  <script src="script.js" async></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-  <style>
-    @font-face {
-      font-family: 'IBM';
-      src: url('PxPlus_IBM_VGA8.ttf');
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terminal</title>
+    <script src="script.js" async></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style>
+      @font-face {
+        /* font-family: 'IBM'; */
+        /* src: url('PxPlus_IBM_VGA8.ttf'); */
+      }
 
-    #terminal {
-      font-family: 'IBM', serif;
-      margin-left: 1em;
-      color: white;
-      /* color: #006AB1; Blue  */
-      /* color: #00DE5B; Green */
-    }
-    body { background-color: black; }
-    img {
-      width: 30px;
-      height: 30px;
-    }
-  </style>
-</head>
+      #terminal {
+        /* font-family: 'IBM', serif; */
+        font-family: "Courier New", courier, monospace;
+        margin-left: 1em;
+        color: white;
+      }
 
-<body>
-  <nav class="navbar navbar-light bg-dark">
-    <a class="navbar-brand" href="#">
-      <img id="reset-button" src="reset.png">
-    </a>
-    <form class="form-inline">
-      <img id="white-button" src="white.png">
-      <img id="blue-button" src="blue.png">
-      <img id="green-button" src="green.png">
-    </form>
-  </nav>
+      #cursor { color: white; }
 
-  <!-- Terminal text goes here -->
-  <p id="terminal"><span id="cursor"></span></p>
-  <!-- Empty div used to scroll into view -->
-  <div id="empty"></div>
+      body { background-color: black; }
 
-</body>
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Figure out keeping cursor on same line -->
+    <!-- Find a better way to parse strings. Perhaps from external text file? -->
+    <!-- Add links to different languages to type -->
+    <!-- When different language clicked, run reset(), and change the parsedCode or outputCode -->
+    <nav class="navbar navbar-light bg-dark">
+      <a class="navbar-brand" href="#">
+        <img id="reset-button" src="reset.png">
+      </a>
+      <form class="form-inline">
+        <span class="mx-3 text-white">Javascript</span>
+        <img id="white-button" src="white.png">
+        <img id="blue-button" src="blue.png">
+        <img id="green-button" src="green.png">
+      </form>
+    </nav>
+
+    <!-- Terminal text goes here -->
+    <p id="terminal"></p><span id="cursor"></span>
+    <!-- Empty div used to scroll into view -->
+    <div id="empty"></div>
+
+  </body>
 
 </html>
