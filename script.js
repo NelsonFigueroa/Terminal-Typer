@@ -29,13 +29,29 @@ var outputCode =
   &emsp;&emsp;}<br>
   }<br><br>
 
+  function blinkCursor() {<br>
+  &emsp;if (bool) {<br>
+  &emsp;&emsp;// Change cursor color to same color as the rest of the #terminal<br>
+  &emsp;&emsp;cursor.style.color = cursorColor;<br>
+  &emsp;&emsp;bool = false;<br>
+  &emsp;}<br>
+  &emsp;else {<br>
+  &emsp;&emsp;// Change cursor color to same color as the background<br>
+  &emsp;&emsp;cursor.style.color = 'black';<br>
+  &emsp;&emsp;bool = true;<br>
+  &emsp;}<br>
+  }<br>
+
   function reset() {<br>
   &emsp;terminal.innerHTML = "";<br>
   &emsp;i = 0;<br>
   }<br><br>
 
   function changeColor(color) {<br>
-  &emsp;terminal.style.color = color;<br>
+  &emsp;// Keep track of color changes for the cursor as well<br>
+  &emsp;cursorColor = color;<br>
+  &emsp;terminal.style.color = cursorColor;<br>
+  &emsp;cursor.style.color = cursorColor;<br>
   }<br><br>
 
   setInterval(function(){ blinkCursor(); }, 500);<br>
