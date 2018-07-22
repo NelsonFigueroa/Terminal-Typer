@@ -8,19 +8,19 @@
     <script src="script.js" async></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <style>
-      @font-face {
-        /* font-family: 'IBM'; */
-        /* src: url('PxPlus_IBM_VGA8.ttf'); */
-      }
+
+      #marginDiv { margin-left: 1em; }
 
       #terminal {
-        /* font-family: 'IBM', serif; */
         font-family: "Courier New", courier, monospace;
-        margin-left: 1em;
+        font-size: 12px;
         color: white;
       }
 
-      #cursor { color: white; }
+      #cursor {
+        color: white;
+        font-size: 12px;
+      }
 
       body { background-color: black; }
 
@@ -32,10 +32,12 @@
   </head>
 
   <body>
-    <!-- Figure out keeping cursor on same line -->
-    <!-- Find a better way to parse strings. Perhaps from external text file? -->
-    <!-- Add links to different languages to type -->
-    <!-- When different language clicked, run reset(), and change the parsedCode or outputCode -->
+    <!--
+    Future Plans:
+    Find a better way to parse strings. Perhaps from external text file?
+    Different Languages...
+    When different language clicked, run reset(), and change the parsedCode or outputCode
+    -->
     <nav class="navbar navbar-light bg-dark">
       <a class="navbar-brand" href="#">
         <img id="reset-button" src="reset.png">
@@ -48,11 +50,13 @@
       </form>
     </nav>
 
-    <!-- Terminal text goes here -->
-    <p id="terminal"></p><span id="cursor"></span>
-    <!-- Empty div used to scroll into view -->
-    <div id="empty"></div>
+    <!-- Div used to add a margin to everything -->
+    <div id="marginDiv">
+      <!-- Terminal text goes here -->
+      <span id="terminal"></span><span id="cursor">|</span>
+      <!-- Empty div used to scroll into view -->
+      <div id="empty"></div>
+    </div>
 
   </body>
-
 </html>

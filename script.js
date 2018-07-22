@@ -49,12 +49,14 @@ var outputCode =
 
 var parsedCode = outputCode.split(" ")
 var bool = true;
+var cursorColor = ''; // Default is white, this is used for blinkCursor()
 var i = 0;
 
 function addCode() {
 
   // Output to <p> tags
   terminal.innerHTML += parsedCode[i] + " ";
+
   // Scroll view automatically to <div> under <p> tag
   div.scrollIntoView();
 
@@ -68,11 +70,13 @@ function addCode() {
 
 function blinkCursor() {
   if (bool) {
-    cursor.innerHTML = " |";
+    // Change cursor color to same color as the rest of the #terminal
+    cursor.style.color = cursorColor;
     bool = false;
   }
   else {
-    cursor.innerHTML = "";
+    // Change cursor color to same color as the background
+    cursor.style.color = 'black';
     bool = true;
   }
 }
@@ -84,8 +88,10 @@ function reset() {
 }
 
 function changeColor(color) {
-  terminal.style.color = color;
-  cursor.style.color = color;
+  // Keep track of color changes for the cursor as well
+  cursorColor = color;
+  terminal.style.color = cursorColor;
+  cursor.style.color = cursorColor;
 }
 
 // Set interval used for cursor blink
