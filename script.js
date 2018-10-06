@@ -116,5 +116,5 @@ setInterval(function(){ blinkCursor(); }, 500);
 document.addEventListener("keydown", addCode, false);
 resetButton.addEventListener("click", reset, false);
 whiteButton.addEventListener("click", function() { changeColor('white'); } , false);
-blueButton.addEventListener("click", function() { changeColor('#006AB1'); } , false); // Blue color
-greenButton.addEventListener("click", function() { changeColor('#00DE5B'); } , false); // Green color
+blueButton.addEventListener("click", function() { changeColor('#2f52e0'); } , false); // Blue color
+greenButton.addEventListener("click", function() { changeColor('#0cf574'); } , false); // Green color

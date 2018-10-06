@@ -9,10 +9,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <style>
 
+      #white-button {
+        background-color: white;
+        margin-right: 0.5em;
+        display: inline-block;
+        height: 1.5em;
+        width: 1.5em;
+        border-radius: 100%;
+      }
+      #blue-button {
+        background-color: #2f52e0;
+        margin-right: 0.5em;
+        display: inline-block;
+        height: 1.5em;
+        width: 1.5em;
+        border-radius: 100%;
+      }
+      #green-button {
+        background-color: #0cf574;
+        display: inline-block;
+        height: 1.5em;
+        width: 1.5em;
+        border-radius: 100%;
+      }
+
       #marginDiv { margin-left: 1em; }
 
       #terminal {
-        font-family: "Courier New", courier, monospace;
+        font-family: "Bitstream Vera Sans Mono", monospace;
         font-size: 14px;
         color: white;
       }
@@ -34,14 +58,14 @@
   <body>
 
     <nav class="navbar navbar-light bg-dark">
-      <a class="navbar-brand" href="#">
-        <img id="reset-button" src="reset.png">
-      </a>
+      <span class="navbar-brand">
+          <button type="button" class="btn btn-sm btn-danger" id="reset-button">Reset</button>
+      </span>
       <form class="form-inline">
-        <span class="mx-3 text-white">Javascript</span>
-        <img id="white-button" src="white.png">
-        <img id="blue-button" src="blue.png">
-        <img id="green-button" src="green.png">
+        <span class="mx-3 text-white">Colors: </span>
+        <div id="white-button"></div>
+        <div id="blue-button"></div>
+        <div id="green-button"></div>
       </form>
     </nav>
 
