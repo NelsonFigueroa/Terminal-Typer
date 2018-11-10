@@ -19,69 +19,60 @@ var outputCode = [
   '<br>',
   'for line in fh:',
   '<br>',
-  "&emsp;",
-  "&emsp;",
-  'line_array = line.split("\n")',
+  '&emsp;',
+  '&emsp;',
+  'line_array = line.split("\\n")',
   '<br>',
-  "&emsp;",
-  "&emsp;",
-  'lines.append(line_array[0]) #Add to lines[]',
+  '&emsp;',
+  '&emsp;',
+  'lines.append(line_array[0])',
   '<br>',
   'fh.close()'
 ];
 
 var bool = true;
 var cursorColor = ''; // Default is white, this is used for blinkCursor()
-var x = 0 // To keep track of lines in outputCode array
+var x = 0; // To keep track of lines in outputCode array
 var i = 0; // To keep track of characters
-
-// Get initial line, split by characters
-code = outputCode[x].split("");
 
 function addCode() {
 
-  terminal.innerHTML += code[i];
+  // Split line by characters
+  code = outputCode[x].split("");
 
-  // Scroll view automatically to <div> under <p> tag
-  div.scrollIntoView();
+  // If line is a tab or <br>, print immediately and go to next line
+  if (outputCode[x] == '&emsp;' || outputCode[x] == '<br>') {
+    terminal.innerHTML += outputCode[x];
+    x += 1;
+    return;
+  }
 
-  // If last character is reached, reset character iterator to 0
-  if (i == code.length - 1) {
-    i = 0;
+  // If there are more characters in line, print them
+  if (i < code.length - 1) {
+    terminal.innerHTML += code[i];
+    i += 1; // increment iterator
+    return;
+  }
+  // If there are no more characters, reset iterator.
+  else if (i == code.length - 1) {
+    i = 0; // reset character iterator
 
-    // If last line is reached in array, start over
-    if (x == outputCode.length - 1) {
-      terminal.innerHTML += '<br><br>';
+    // If there are more lines in array, go to next line
+    if (x < outputCode.length - 1) {
+      x += 1;
+    }
+    // If it is the last line, reset to 0
+    else {
       x = 0;
       code = outputCode[x].split("");
+      terminal.innerHTML += '<br><br>';
     }
-    // If it isn't the last line, go to next line
-    else {
-      x += 1;
-      code = outputCode[x].split("");
-    }
+  }
 
-    // If next line is <br> or &emsp; (tab), print immediately
-    if (outputCode[x] == '<br>' || outputCode[x] == '&emsp;') {
-      terminal.innerHTML += outputCode[x];
-      // If last line is reached in array, start over
-      if (x == outputCode.length - 1) {
-        terminal.innerHTML += '<br><br>';
-        x = 0;
-        code = outputCode[x].split("");
-      }
-      // If not, simply go to next line
-      else {
-        x += 1;
-        code = outputCode[x].split("");
-      }
-    }
-  }
-  // If last character is not reached, go to next character
-  else {
-    i += 1;
-  }
 }
+
+// Scroll view automatically to <div> under <p> tag
+div.scrollIntoView();
 
 function blinkCursor() {
   if (bool) {
