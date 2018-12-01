@@ -1,6 +1,7 @@
 const terminal = document.querySelector("#terminal");
 const cursor = document.querySelector("#cursor");
 const div = document.querySelector("#empty");
+const wrapper = document.querySelector("#wrapper");
 const resetButton = document.querySelector("#reset-button");
 const whiteButton = document.querySelector("#white-button");
 const blueButton = document.querySelector("#blue-button");
@@ -223,7 +224,6 @@ function blinkCursor() {
   }
 }
 
-
 function reset() {
   terminal.innerHTML = "";
   x = 0; // reset line iterator
@@ -244,8 +244,8 @@ setInterval(function(){ blinkCursor(); }, 500);
 document.addEventListener("keydown", addCode, false);
 
 // Event listeners to add code to screen when screen is touched
-document.addEventListener("touchstart", addCode, false);
-document.addEventListener("touchend", addCode, false);
+wrapper.addEventListener("touchstart", addCode, false);
+wrapper.addEventListener("touchend", addCode, false);
 
 // Event listener to reset screen when reset button is clicked
 resetButton.addEventListener("click", reset, false);

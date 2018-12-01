@@ -33,6 +33,11 @@
         border-radius: 100%;
       }
 
+      #wrapper {
+        width: 100%;
+        height:100vh; /* 100% of viewport */
+      }
+
       #marginDiv { margin-left: 1em; }
 
       #terminal {
@@ -70,12 +75,15 @@
       </form>
     </nav>
 
-    <!-- Div used to add a margin to everything -->
-    <div id="marginDiv">
-      <!-- Terminal text goes here -->
-      <span id="terminal"></span><span id="cursor">|</span>
-      <!-- Empty div used to scroll into view -->
-      <div id="empty"></div>
+    <!-- Wrapper class to cover everything except navabr, for touch purposes -->
+    <div id="wrapper">
+      <!-- Div used to add a margin to everything -->
+      <div id="marginDiv">
+        <!-- Terminal text goes here -->
+        <span id="terminal"></span><span id="cursor">|</span>
+        <!-- Empty div used to scroll into view -->
+        <div id="empty"></div>
+      </div>
     </div>
 
   </body>
