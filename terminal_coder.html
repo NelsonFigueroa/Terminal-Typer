@@ -33,14 +33,14 @@
         border-radius: 100%;
       }
 
-      #wrapper {
-        width: 100%;
-        height: 100vh; /* 100% of viewport */
+      #touch-area {
+        /* position: fixed; */
+        /* width: 100%; */
+        /*  height: 100vh; /* 100% of viewport */
       }
 
       #marginDiv {
         margin-left: 1em;
-        margin-top: 5em;
       }
 
       #terminal {
@@ -66,7 +66,7 @@
 
   <body>
 
-    <nav class="navbar navbar-light bg-dark fixed-top">
+    <nav class="navbar navbar-light bg-dark">
       <span class="navbar-brand">
           <button type="button" class="btn btn-sm btn-danger" id="reset-button">Reset</button>
       </span>
@@ -78,15 +78,18 @@
       </form>
     </nav>
 
-    <!-- Wrapper class to cover everything except navabr, for touch purposes -->
-    <div id="wrapper">
-      <!-- Div used to add a margin to everything -->
-      <div id="marginDiv">
-        <!-- Terminal text goes here -->
-        <span id="terminal"></span><span id="cursor">|</span>
-        <!-- Empty div used to scroll into view -->
-        <div id="empty"></div>
-      </div>
+    <!-- Div to cover everything except navabr, for touch purposes -->
+    <!-- Still in testing. -->
+    <!-- Needs to either float in middle or always dynamically adjust in height as page scrolls -->
+    <div id="touch-area"><div>
+
+
+    <!-- Div used to add a margin to everything -->
+    <div id="marginDiv">
+      <!-- Terminal text goes here -->
+      <span id="terminal"></span><span id="cursor">|</span>
+      <!-- Empty div used to scroll into view -->
+      <div id="empty"></div>
     </div>
 
   </body>

@@ -1,7 +1,7 @@
 const terminal = document.querySelector("#terminal");
 const cursor = document.querySelector("#cursor");
 const div = document.querySelector("#empty");
-const wrapper = document.querySelector("#wrapper");
+const touch = document.querySelector("#touch-area");
 const resetButton = document.querySelector("#reset-button");
 const whiteButton = document.querySelector("#white-button");
 const blueButton = document.querySelector("#blue-button");
@@ -169,7 +169,7 @@ function addCode() {
 
   // Split line by characters
   code = outputCode[x].split("");
-  // Scroll view automatically to <div> under <p> tag
+  // Scroll view automatically to #empty <div>
   div.scrollIntoView();
 
   // If line is a tab or <br>, print immediately and go to next line
@@ -242,10 +242,11 @@ setInterval(function(){ blinkCursor(); }, 500);
 
 // Event listener to add code to screen when a key is pressed
 document.addEventListener("keydown", addCode, false);
+document.addEventListener("keyup", addCode, false);
 
 // Event listeners to add code to screen when screen is touched
-wrapper.addEventListener("touchstart", addCode, false);
-wrapper.addEventListener("touchend", addCode, false);
+touch.addEventListener("touchstart", addCode, false);
+touch.addEventListener("touchend", addCode, false);
 
 // Event listener to reset screen when reset button is clicked
 resetButton.addEventListener("click", reset, false);
