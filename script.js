@@ -243,6 +243,10 @@ setInterval(function(){ blinkCursor(); }, 500);
 // Event listener to add code to screen when a key is pressed
 document.addEventListener("keydown", addCode, false);
 
+// Event listeners to add code to screen when screen is touched
+terminal.addEventListener("touchstart", addCode, false);
+terminal.addEventListener("touchend", addCode, false);
+
 // Event listener to reset screen when reset button is clicked
 resetButton.addEventListener("click", reset, false);
 
