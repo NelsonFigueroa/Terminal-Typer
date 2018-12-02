@@ -1,7 +1,7 @@
 const terminal = document.querySelector("#terminal");
 const cursor = document.querySelector("#cursor");
 const div = document.querySelector("#empty");
-const touch = document.querySelector("#touch-area");
+const margin = document.querySelector("#marginDiv");
 const resetButton = document.querySelector("#reset-button");
 const whiteButton = document.querySelector("#white-button");
 const blueButton = document.querySelector("#blue-button");
@@ -244,9 +244,9 @@ setInterval(function(){ blinkCursor(); }, 500);
 document.addEventListener("keydown", addCode, false);
 document.addEventListener("keyup", addCode, false);
 
-// Event listeners to add code to screen when screen is touched
-touch.addEventListener("touchstart", addCode, false);
-touch.addEventListener("touchend", addCode, false);
+// Event listeners to add code to screen when code is touched
+margin.addEventListener("touchstart", addCode, false);
+margin.addEventListener("touchend", addCode, false);
 
 // Event listener to reset screen when reset button is clicked
 resetButton.addEventListener("click", reset, false);
