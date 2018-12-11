@@ -247,6 +247,12 @@ document.addEventListener("keyup", addCode, false);
 document.addEventListener("touchstart", addCode, false);
 document.addEventListener("touchend", addCode, false);
 
+// Event listeners to change colors and reset for mobile devices
+resetButton.addEventListener("touchstart", reset, false);
+whiteButton.addEventListener("touchstart", function() { changeColor('white'); } , false); // White color
+blueButton.addEventListener("touchstart", function() { changeColor('#2f52e0'); } , false); // Blue color
+greenButton.addEventListener("touchstart", function() { changeColor('#0cf574'); } , false); // Green color
+
 // Event listener to reset screen when reset button is clicked
 resetButton.addEventListener("click", reset, false);
 
